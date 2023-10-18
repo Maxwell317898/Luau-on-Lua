@@ -1,4 +1,3 @@
-
 local Bank1
 local Bank2
 
@@ -11,7 +10,7 @@ function bankclear(variable, timeing)
     variable = nil
 end
 
-function erandom(peram1, peram2) -- the math.random fuction from luau just you will need to use erandom() instead
+function random(peram1, peram2) -- the math.random fuction from luau just you will need to use erandom() instead
     if peram1 ~= math.floor(peram1) or peram2 ~= math.floor(peram2) then
         Bank1 = math.random() * (peram2 - peram1) + peram1
         bankclear(Bank1, 0.05)
@@ -21,3 +20,22 @@ function erandom(peram1, peram2) -- the math.random fuction from luau just you w
     end
 end
 
+function error(message, level)
+    if level == nil or level == 1 then
+        if message == nil then
+            os.execute("echo ERROR: incorect val type message exptected string got:", message)
+            os.exit(1)
+        else
+            os.execute("echo ERROR:"..message)
+            os.exit(1)
+        end
+    else
+        if message == nil then
+            os.execute("echo ERROR: incorect val type message exptected string got:", message)
+            os.exit(1) 
+        else
+            os.execute("echo ERROR: "..message)
+            os.exit(level)
+        end
+    end
+end
