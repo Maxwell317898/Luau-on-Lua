@@ -1,7 +1,8 @@
+
 local Bank1
 local Bank2
 
-function wait(peram1) -- the wait function form luau (may now work with other pc types)
+function wait(peram1) -- the wait function form luau (may not work with other pc types)
     os.execute("sleep " .. peram1)
 end
 
@@ -10,7 +11,7 @@ function bankclear(variable, timeing)
     variable = nil
 end
 
-function random(peram1, peram2) -- the math.random fuction from luau just you will need to use erandom() instead
+function random(peram1, peram2) -- the math.random fuction from luau 
     if peram1 ~= math.floor(peram1) or peram2 ~= math.floor(peram2) then
         Bank1 = math.random() * (peram2 - peram1) + peram1
         bankclear(Bank1, 0.05)
@@ -20,7 +21,7 @@ function random(peram1, peram2) -- the math.random fuction from luau just you wi
     end
 end
 
-function error(message, level)
+function error(message, level) -- error function from luau
     if level == nil or level == 1 then
         if message == nil then
             os.execute("echo ERROR: incorect val type message exptected string got:", message)
@@ -38,4 +39,8 @@ function error(message, level)
             os.exit(level)
         end
     end
+end
+
+function boxtext(message)
+    print("{--------------------------------------------------------}\n {".. message .. "}\n{--------------------------------------------------------}" )
 end
